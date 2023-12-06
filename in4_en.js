@@ -11,6 +11,7 @@ const auth = getAuth(app);
 let encodedEmail;
 const nameuser1 = document.getElementById("nameuser1");
 const avtUser1 = document.getElementById("avt_user1");
+const id_st = document.getElementById("st_id");
 let Id_device;
 onAuthStateChanged(auth, (user) => {  
   if (user) {
