@@ -1,4 +1,4 @@
-# tt_iot_23 ver 1.0
+# Doan 2 - GVHD: Nguyen Ngo Lam
 - author information => Lê Danh Đức - Vương Thiên Đan - HCMUTE
 
 - insta: @hnadduc
