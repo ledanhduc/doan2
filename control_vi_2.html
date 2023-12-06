@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="control.css">
+    <title>Analytics | ELS</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="img/logo_2.png">
+                    <!-- <h2>Asmr<span class="danger">Prog</span></h2> -->
+                    <h2>Easy Life Solutions</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        person_outline
+                    </span>
+                    <h3>Users</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        receipt_long
+                    </span>
+                    <h3>History</h3>
+                </a>
+                <a href="#" >
+                    <span class="material-icons-sharp">
+                        insights
+                    </span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="control_en.html" class="active">
+                    <span class="material-icons-sharp">
+                        touch_app
+                    </span>
+                    <h3>Control</h3>
+                    <!-- <span class="message-count">1 On</span> -->
+                    <span class="message-count"><br></span>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h3>Statistics</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        download
+                    </span>
+                    <h3>Download</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>Add Devices</h3>
+                </a>
+                <a href="#" class="logout">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- End of Sidebar Section -->
+        
+        <!-- <div class="toggle-button" id="lamp_1_toggle"></div> -->
+        
+        <!-- Main Content -->
+        <main>
+            <h1>Analytics</h1>
+            <!-- Analyses -->
+            <div class="analyse">
+                <div class="Present">
+                    <div class="status">
+                      <div class="info">
+                        <h3>Lamp 1</h3>
+                        <h1 class="sta_tg" id="lamp_1_state">OFF</h1>
+                      </div>
+                      <div class="progresss">
+                        <div class="toggle">
+                            <!-- <div class="toggle-button" id="lamp_1_toggle" click="lamp1_toggle()"></div>-->
+                            <div class="toggle-button" id="lamp_1_toggle"></div>                         
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="Temperature">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Lamp 2</h3>
+                            <h1 id="lamp_2_state" class="sta_tg">OFF</h1>
+                        </div>
+                        <div class="progresss">
+                            <div class="toggle">
+                                <div class="toggle-button" id="lamp_2_toggle" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="Humidity">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Air Conditioner 1</h3>
+                            <img src="img/air_off.png" class="img_air" id="img_air_1">
+                        </div>
+                        <div class="progresss">
+                            <div class="toggle">
+                                <div class="toggle-button" id="air_1_toggle" onclick="Animatedtoggle()"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="Humidity">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Air Conditioner 1</h3>
+                            <img src="img/air_off.png" class="img_air" id="img_air_1">
+                        </div>
+                        <div class="progresss">
+                            <div class="toggle">
+                                <div class="toggle-button" id="air_1_toggle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Temperature">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Fan 1</h3>
+                            <h1 class="sta_tg" id="fan_1_state">OFF</h1>
+                        </div>
+                        <div class="progresss">
+                            <div class="toggle">
+                                <div class="toggle-button" id="fan_1_toggle" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Temperature">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Fan 2</h3>
+                            <h1 class="sta_tg" id="fan_2_state">OFF</h1>
+                        </div>
+                        <div class="progresss">
+                            <div class="toggle">
+                                <div class="toggle-button" id="fan_2_toggle" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Humidity">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Air Conditioner 2</h3>
+                            <img src="img/air_off.png" class="img_air" id="img_air_2">
+                        </div>
+                        <div class="progresss">
+                            <div class="toggle">
+                                <div class="toggle-button" id="air_2_toggle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="Temperature">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Fan 1</h3>
+                            <h1 class="sta_tg" id="fan_1_state">OFF</h1>
+                        </div>
+                        <div class="progresss">
+                            <input type="text" id="text_test" style="border: 1px solid; color: #000;">
+                            <button id="btn_text"><img src="images/plus.png" alt="" style="width: 40px; height: 40px; cursor: move;"></button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- End of Analyses -->
+
+            <!-- New Users Section -->
+            <div class="blank-room">
+                <h2>Blank Room</h2>
+                <div class="room-list">
+                    <div class="room">
+                        <img src="img/iotlab.png">
+                        <h2>TT IoT</h2>
+                        <p>C302</p>
+                    </div>
+                    <div class="room">
+                        <img src="img/foodlab.png">
+                        <h2>TN Chemistry  1 </h2>
+                        <p>A4-303</p>
+                    </div>
+                    <div class="room">
+                        <img src="img/classroom.png">
+                        <h2>Theory</h2>
+                        <p>A2-202</p>
+                    </div>
+                    <div class="room">
+                        <!-- <img src="images/plus.png"> -->
+                        <h2>More</h2>
+                        <span class="material-symbols-outlined">
+                            expand_circle_down
+                        </span>
+                        <!-- <p>New User</p> -->
+                    </div>
+                </div>
+            </div>
+            <!-- End of New Users Section -->
+
+            <!-- Recent Orders Table -->
+            <div class="recent-checkin">
+                <h2>Attendance </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>ID</th>
+                            <th>Input</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <a href="#">Show All</a>
+            </div>
+            <!-- End of Recent Orders -->
+
+        </main>
+        <!-- End of Main Content -->
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+
+                <div>
+                    <a href="analytics_vi.html" class="lang">En</a>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p>Hi, <b>Mr. Phuc</b></p>
+                        <small class="text-muted">Lecturers</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="images/profile-1.jpg">
+                    </div>
+                </div>
+
+            </div>
+            <!-- End of Nav -->
+
+            <div class="weather-in4">
+                <div class="search">
+                    <input type="text" placeholder="weather in your city" spellcheck="false">
+                    <button></button>
+                    <!-- <button><img src="img/search.png"></button> -->
+                </div>
+                <div class="error">
+                    <p>Invalid city name</p>
+                </div>
+                <div class="weather">
+                    <img src="img/rain.png" class="weather-icon">
+                    <!-- <h1 class="temp">28°C</h1> -->
+                    <h1 class="w_temp">28°C</h1>
+                    <h2 class="city">TP. HCM</h2>
+                    <div class="details">
+                        <div class="col">
+                            <img src="img/humidity.png">
+                            <div>
+                                <!-- <p class="humidity">50%</p> -->
+                                <p class="w_humi">50%</p>
+                                <p>Độ ẩm</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="img/wind.png">
+                            <div>
+                                <!-- <p class="wind">15 km/h</p> -->
+                                <p class="w_wind">15 km/h</p>
+                                <p>Tốc độ gió</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="card">
+                <div class="search">
+                    <input type="text" placeholder="weather in your city" spellcheck="false">
+                    <button><img src="img/search.png"></button>
+                </div>
+                <div class="error">
+                    <p>Invalid city name</p>
+                </div>
+                <div class="weather">
+                    <img src="img/rain.png" class="weather-icon">
+                    <h1 class="temp">28°C</h1>
+                    <h2 class="city">TP. HCM</h2>
+                    <div class="details">
+                        <div class="col">
+                            <img src="img/humidity.png">
+                            <div>
+                                <p class="humidity">50%</p>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="img/wind.png">
+                            <div>
+                                <p class="wind">15 km/h</p>
+                                <p>Wind Speed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Reminders</h2>
+                    <span class="material-icons-sharp">
+                        notifications_none
+                    </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            volume_up
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>TT IoT</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            edit
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>IoT</h3>
+                            <small class="text_muted">
+                                13:00 PM - 17:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp">
+                            add
+                        </span>
+                        <h3>Add class</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script src="weather_3.js"></script>
+    <!-- <script src="in4_2.js" type="module"></script> -->
+    <script src="getauth_vi.js" type="module"></script>
+    <!-- <script src="circle_temp.js" ></script> -->
+    <script src="orders.js"></script>
+    <script src="index_2.js"></script>
+    <!-- <script src="toggle_control_3.js"></script> -->
+    <script type="module" src="toggle_control_5.js"></script>
+    <script type="module" src="logout_vi.js"></script>
+
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>
