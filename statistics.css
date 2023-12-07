@@ -269,6 +269,26 @@ aside .sidebar .message-count{
     height: 90%;
 }
 
+.chart #butt_nos{
+    text-decoration: none;
+    color: var(--color-dark);
+    border: 1px solid #bdb9b9;
+    padding: 5px 20px;
+    font-size: 13px;
+    background-color: transparent;
+    cursor: alias;
+    margin-top: 5px;
+    margin-left: 5px;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+.chart #butt_nos:hover{
+    border: 1px solid #f44336;
+    background: #f44336;
+    color: #fff;
+    transition: 0.3s;
+}
+
 @media screen and (max-width: 768px) {
     .chart .lang{
         margin-right: 70px;
@@ -375,7 +395,7 @@ aside .sidebar .message-count{
 
     .chart{
         width: 94%;
-        margin: 0 auto 4rem;
+        margin: 0 auto ;
     }
 
     .chart .nav{
