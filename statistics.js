@@ -105,68 +105,12 @@ function handleIdDeviceUpdate(value) {
       }
     });
 
-    // Đặt kích thước canvas để phù hợp với kích thước biểu đồ
-    // canvas.style.width = myChart.width;
-    canvas.style.height = "920px";
+    // canvas.style.height = "920px";
 
-    // Đặt thuộc tính CSS overflow-x: auto cho canvas
-    // canvas.style.overflowX = 'auto';
   });
 }
 
-// onAuthStateChanged(auth, (user) => {  
-//   if (user) {
-//     encodedEmail = encodeURIComponent(user.email.replace(/[.@]/g, '_'));
 
-//     onValue(ref(database, `${encodedEmail}/Id_Device`), (snapshot) => {
-//       Id_device = snapshot.val();
-//       handleIdDeviceUpdate(Id_device);
-//     });
-//   }
-// });
-
-// let myChart; // Khai báo biến myChart ở ngoài hàm để lưu trữ biểu đồ
-
-// function handleIdDeviceUpdate(value) {
-//   console.log(value);
-
-//   const powerData = [];
-//   const timeData = [];
-
-//   const powerRef = ref(database, `${value}/chart_power`);
-//   onValue(powerRef, (snapshot) => {
-//     snapshot.forEach((childSnapshot) => {
-//       const data = childSnapshot.val();
-//       powerData.push(data.power);
-//       timeData.push(data.time);
-//     });
-
-//     const ctx = document.getElementById('myChart').getContext('2d');
-//     if (typeof myChart !== 'undefined') {
-//       myChart.destroy();
-//     }
-//     myChart = new Chart(ctx, {
-//       type: 'line',
-//       data: {
-//         labels: timeData,
-//         datasets: [{
-//           label: 'Công suất',
-//           data: powerData,
-//           borderColor: 'rgba(75, 192, 192, 1)',
-//           borderWidth: 1,
-//           fill: false
-//         }]
-//       },
-//       options: {
-//         scales: {
-//           y: {
-//             beginAtZero: true
-//           }
-//         }
-//       }
-//     });
-//   });
-// }
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -176,15 +120,15 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// var userRead =  sessionStorage.getItem('userses') || localStorage.getItem('user');
-// if (userRead === null) {
-//     try {
-//         auth.signOut();
-//     }
-//     catch(error){
-//         console.error(error);
-//       };
-// }
+var userRead =  sessionStorage.getItem('userses') || localStorage.getItem('user');
+if (userRead === null) {
+    try {
+        auth.signOut();
+    }
+    catch(error){
+        console.error(error);
+      };
+}
 
 
 
