@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-import { getDatabase, ref, onValue, onChildAdded, child, orderByChild, startAt, endAt, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
+import { getDatabase, ref, set, onValue, onChildAdded, child, orderByChild, startAt, endAt, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
 
@@ -13,6 +13,9 @@ const auth = getAuth(app);
 let encodedEmail;
 const nameuser1 = document.getElementById("nameuser1");
 const avtUser1 = document.getElementById("avt_user1");
+const nos = document.getElementById("nos");
+const butt_nos = document.getElementById("butt_nos");
+
 let Id_device;
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -21,7 +24,6 @@ onAuthStateChanged(auth, (user) => {
       avtUser1.src = snapshot.val();
     });
     nameuser1.innerHTML = user.displayName;
-    // console.log(user.displayName);
 
     onValue(ref(database, `${encodedEmail}/Id_Device`), (snapshot) => {
       Id_device = snapshot.val();
@@ -30,10 +32,24 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-let myChart; // Khai báo biến myChart ở ngoài hàm để lưu trữ biểu đồ
+let myChart;
+
+butt_nos.addEventListener('click', function() {
+  const fre_nosValue = nos.value;
+  set(ref(database, `${Id_device}/fre_nos`), fre_nosValue);
+  location.reload()
+});
 
 function handleIdDeviceUpdate(value) {
   console.log(value);
+  
+  const fre_nosRef = ref(database, `${value}/fre_nos`);
+  let fre_nos;
+  onValue(fre_nosRef, (snapshot) => {
+    fre_nos = snapshot.val();
+    nos.value = fre_nos;
+  });
+
 
   const powerData = [];
   const timeData = [];
@@ -46,8 +62,7 @@ function handleIdDeviceUpdate(value) {
       timeData.push(data.time);
     });
 
-    // Giới hạn số lượng dữ liệu hiển thị
-    const displayDataCount = 30;
+    const displayDataCount = fre_nos;
     if (powerData.length > displayDataCount) {
       powerData.splice(0, powerData.length - displayDataCount);
       timeData.splice(0, timeData.length - displayDataCount);
@@ -66,7 +81,6 @@ function handleIdDeviceUpdate(value) {
           label: 'Công suất',
           data: powerData,
           borderColor: 'rgba(75, 192, 192, 1)',
-          // borderColor: '#5099c4',
           borderWidth: 1,
           fill: false
         }]
@@ -105,12 +119,8 @@ function handleIdDeviceUpdate(value) {
       }
     });
 
-    // canvas.style.height = "920px";
-
   });
 }
-
-
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
