@@ -15,7 +15,7 @@ langBtn.addEventListener('click', function() {
     statistics: isEnglish ? 'Statistics' : 'Thống kê',
     download: isEnglish ? 'Download' : 'Tải xuống',
     settings: isEnglish ? 'Settings' : 'Cài đặt',
-    addDevices: isEnglish ? 'Add Devices' : 'Thêm thiết bị',
+    add_devices: isEnglish ? 'Add Devices' : 'Thêm thiết bị',
     logout: isEnglish ? 'Logout' : 'Đăng xuất'
   };
   
