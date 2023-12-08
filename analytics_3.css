@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800&display=swap'); */
 
 :root{
     --color-primary: #6C9BCF;
@@ -56,7 +59,8 @@ html{
 body{
     width: 100vw;
     height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     font-size: 0.88rem;
     -webkit-user-select: none;
     user-select: none;
@@ -72,7 +76,6 @@ a{
 img{
     display: block;
     width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
@@ -216,7 +219,8 @@ aside .sidebar a.active::before{
 
 aside .sidebar a.active span{
     color: var(--color-primary);
-    margin-left: calc(1rem - 3px);
+    /* margin-right: calc(1rem - 3px); */
+    /* margin-left: calc(1rem - 3px); */
 }
 
 aside .sidebar a:hover{
@@ -224,16 +228,15 @@ aside .sidebar a:hover{
 }
 
 aside .sidebar a:hover span{
-    margin-left: 0.6rem;
+    /* margin-right: 0.6rem; */
+    margin-left: 0.5rem;
 }
 
 aside .sidebar .message-count{
-    background-color: rgba(116, 220, 46, 0.6);
-    padding: 2px 6px;
-    color: var(--color-dark);
-    font-size: 12px;
-    font-weight: 600;
-    border-radius: var(--border-radius-1);
+    /* background-color: rgba(116, 220, 46, 1); */
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
 }
 
 main{
