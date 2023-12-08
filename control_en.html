@@ -31,8 +31,8 @@
                 </div>
             </div>
 
-            <div class="sidebar">
-                <a href="#">
+                        <div class="sidebar">
+                <a id="ref_dashboard" href="#">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
@@ -50,18 +50,18 @@
                     </span>
                     <h3>History</h3>
                 </a>
-                <a id="ref_analytics" href="" >
+                <a id="ref_analytics" href="" class="">
                     <span class="material-icons-sharp">
                         insights
                     </span>
                     <h3>Analytics</h3>
                 </a>
-                <a id="ref_control" href="" class="active">
+                <a id="ref_control" href="">
                     <span class="material-icons-sharp">
                         touch_app
                     </span>
                     <h3>Control</h3>
-                    <span class="message-count"><br></span>
+                    <span class="message-count" id="st_cir"><br></span>
                 </a>
                 <a id="ref_statistics" href="#">
                     <span class="material-icons-sharp">
@@ -81,13 +81,13 @@
                     </span>
                     <h3>Settings</h3>
                 </a>
-                <a id="ref_add_devices" href="#">
+                <a id="ref_addDevices" href="#">
                     <span class="material-icons-sharp">
                         add
                     </span>
                     <h3>Add Devices</h3>
                 </a>
-                <a href="#" class="logout">
+                <a id="ref_logout" class="logout">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -255,7 +255,7 @@
                 </div>
 
                 <div>
-                    <a href="control_vi.html" class="lang">En</a>
+                    <a id="langBtn" class="lang">En</a>
                 </div>
 
                 <div class="profile">
@@ -417,6 +417,7 @@
     <script src="orders.js"></script>
     <script src="index_2.js"></script>
     <script src="href.js"></script>
+    <script src="translate.js"></script>
     <script type="module" src="toggle_control_en.js"></script>
     <script type="module" src="logout_en.js"></script>
 
