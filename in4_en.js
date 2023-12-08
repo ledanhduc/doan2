@@ -149,7 +149,7 @@ onValue(powerRef, (snapshot) => {
   }
 
   setInterval(sendCurrentMinute, 1 * 1000);
-  setInterval(checkOnlesp, 8 * 1000);
+  setInterval(checkOnlesp, 12 * 1000);
   // console.log(currentMinute);
 
 }
