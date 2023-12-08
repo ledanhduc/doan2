@@ -32,7 +32,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#">
+                <a id="ref_dashboard" href="#">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
@@ -61,13 +61,13 @@
                         touch_app
                     </span>
                     <h3>Control</h3>
-                    <span class="message-count"><br></span>
                 </a>
                 <a id="ref_statistics" href="#" class="active">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Statistics</h3>
+                    <span class="message-count"><br></span>
                 </a>
                 <a id="ref_download" href="#">
                     <span class="material-icons-sharp">
@@ -87,7 +87,7 @@
                     </span>
                     <h3>Add Devices</h3>
                 </a>
-                <a href="#" class="logout">
+                <a id="ref_logout" class="logout">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -113,7 +113,7 @@
                 </div>
                 
                 <div>
-                    <a href="control_vi.html" class="lang">En</a>
+                    <a id="langBtn" class="lang">En</a>
                 </div>
                 
                 <div class="profile">
@@ -137,6 +137,7 @@
     <script type="module" src="statistics.js"></script>
     <script type="module" src="logout_en.js"></script>
     <script src="href.js"></script>
+    <script src="translate.js"></script>
     <script>
         const sideMenu = document.querySelector('aside');
         const menuBtn = document.getElementById('menu-btn');
