@@ -108,6 +108,31 @@ lamps_fb.forEach(function(lamp_fb) {
 });
 }
 
+var currentMinute;
+const st_cir = document.getElementById('st_cir');
+let onlesp;
+
+function sendCurrentMinute() {
+  currentMinute = new Date().getMinutes(); 
+  // console.log(currentMinute);
+
+  const onlesp_stRef = ref(database, `${value}/onlesp_st`);
+  onValue(onlesp_stRef, (snapshot) => {
+    onlesp = snapshot.val();
+  });
+}
+
+function checkOnlesp() {
+  // console.log(currentMinute);
+  if (onlesp == currentMinute) {
+    st_cir.style.background = "rgba(57, 198, 92, 255)";
+  } else {
+    st_cir.style.background = "rgb(227, 4, 90)";
+  }
+}
+
+setInterval(sendCurrentMinute, 1 * 1000);
+setInterval(checkOnlesp, 12 * 1000);
 // let airConditioners_fb = [
 //   {toggle: document.getElementById('air_1_toggle'), img: document.getElementById('img_air_1'), path: 'c302/air_1_state'},
 //   {toggle: document.getElementById('air_2_toggle'), img: document.getElementById('img_air_2'), path: 'c302/air_2_state'}
