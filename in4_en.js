@@ -176,7 +176,7 @@ var userRead = sessionStorage.getItem('userses') || localStorage.getItem('user')
 if (userRead === null) {
     try {
         auth.signOut();
-        window.location.replace("login.html"); // Chuyển hướng trở lại trang đăng nhập
+        window.location.replace("login_en.html"); // Chuyển hướng trở lại trang đăng nhập
     } catch(error) {
         console.error(error);
     }
