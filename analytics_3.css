@@ -337,15 +337,12 @@ main .analyse .temp_cir svg circle:nth-child(2).pre {
     stroke-dasharray: 239;
     /* stroke-dashoffset: calc(239 - (239 * var(--num_pre)) / var(--tot_pre)); */
     stroke-dashoffset: calc(239 - (239 * var(--num_pre)) / 250);
-    /* transition: stroke-dashoffset 0.5s ease-in-out; */
-    /* stroke-dashoffset: calc(239 - (239 * var(--tot_pre))/100); */
 }
 main .analyse .temp_cir svg circle:nth-child(2).temp {
     stroke: var(--clr-temp);
     stroke-dasharray: 239;
     stroke-dashoffset: calc(239 - (239 * var(--num_temp)) / 100);
     transition: stroke-dashoffset 0.5s ease-in-out;
-
 }   
 main .analyse .temp_cir svg circle:nth-child(2).humi {
   stroke: var(--clr-humi);
@@ -360,8 +357,12 @@ main .analyse .temp_cir svg circle:nth-child(2).power {
     stroke-dashoffset: 0;
     /* animation-delay: 1s; */
     transition: stroke 0.8s ease-in-out;
-  }
-
+}
+main .analyse .temp_cir svg circle:nth-child(2).energy {
+    stroke: var(--clr-energy);
+    stroke-dasharray: 239;
+    stroke-dashoffset: calc(239 - (239 * var(--num_day)) / 30);
+}
 .dot{
     position: absolute;
     inset: 2.9px;
@@ -381,12 +382,13 @@ main .analyse .temp_cir svg circle:nth-child(2).power {
     inset: 2.9px;
     z-index: 1;
     animation: animateDot2 2s forwards;
-    
-    /* transition: animateDot2 2s step-start; */
-    /* transition: animateDot2 1s ease-in-out;
-   animation-duration: animateDot2 calc(var(--num_humi) / 10 * 2s) linear forwards; */
 }
-
+.dot4{
+    position: absolute;
+    inset: 2.9px;
+    z-index: 1;
+    animation: animateDot4 2s forwards;
+}
 @keyframes animateDot{
     0%{
         transform: rotate(0deg);
@@ -413,9 +415,14 @@ main .analyse .temp_cir svg circle:nth-child(2).power {
     }    
     100%{
         transform: rotate(calc(360deg * var(--num_humi) / 10));
-        /* animation-delay: 1s; */
-        /* transition: transform 1s ease-in-out; */
-
+    }
+}
+@keyframes animateDot4{
+    0%{
+        transform: rotate(0deg);
+    }    
+    100%{
+        transform: rotate(calc(360deg * var(--num_day) / 30));
     }
 }
 
@@ -458,19 +465,19 @@ main .analyse .temp_cir svg circle:nth-child(2).power {
     box-shadow: 0 0 10px var(--clr-humi),
                 0 0 30px var(--clr-humi);
 }
-/* .dot3::before{
+.dot4::before{
     content: '';
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: 10px;
     height: 10px;
-    background: var(--clr-power);
+    background: var(--clr-energy);
     border-radius: 50%;
     transition: 2s ease-in-out;
-    box-shadow: 0 0 10px var(--clr-power),
-                0 0 30px var(--clr-power);
-} */
+    box-shadow: 0 0 10px var(--clr-energy),
+                0 0 30px var(--clr-energy);
+}
 main .analyse .temp_cir .percentage{
     position: absolute;
     top: 1px;
