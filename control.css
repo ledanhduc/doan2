@@ -227,7 +227,7 @@ aside .sidebar a:hover span{
 
 aside .sidebar .message-count{
     /* background-color: var(--color-green); */
-    background-color: rgba(116, 220, 46, 1);
+/*     background-color: rgba(116, 220, 46, 1); */
     width: 24px;
     height: 24px;
     border-radius: 50%;
