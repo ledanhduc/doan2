@@ -154,6 +154,9 @@ onValue(powerRef, (snapshot) => {
 
 }
 
+var today = new Date();
+var day = today.getDate();
+document.getElementById("num_energy").style.setProperty('--num_day', day);
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
