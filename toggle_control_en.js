@@ -53,9 +53,6 @@ function handleIdDeviceUpdate(value) {
   
 let lamps = [
 {toggle: document.getElementById('lamp_1_toggle'), state: document.getElementById('lamp_1_state'), path: `${value}/lamp_1_state`},
-// {toggle: document.getElementById('lamp_2_toggle'), state: document.getElementById('lamp_2_state'), path: 'c302/lamp_2_state'},
-// {toggle: document.getElementById('fan_1_toggle'), state: document.getElementById('fan_1_state'), path: 'c302/fan_1_state'},
-// {toggle: document.getElementById('fan_2_toggle'), state: document.getElementById('fan_2_state'), path: 'c302/fan_2_state'}
 ];
 
 lamps.forEach(function(lamp) {
@@ -64,32 +61,9 @@ lamp.toggle.addEventListener('click', function() {
 });
 });
 
-// function toggleAirConditioner(toggleElem, imgElem, path) {
-// toggleElem.parentNode.classList.toggle('active');
-// if (toggleElem.parentNode.classList.contains('active')) {
-//     set(ref(database, path), true); 
-
-// } else {
-//     set(ref(database, path), false); 
-// }
-// }
-
-// let airConditioners = [
-// {toggle: document.getElementById('air_1_toggle'), img: document.getElementById('img_air_1'), path: 'c302/air_1_state'},
-// {toggle: document.getElementById('air_2_toggle'), img: document.getElementById('img_air_2'), path: 'c302/air_2_state'}
-// ];
-
-// airConditioners.forEach(function(ac) {
-// ac.toggle.addEventListener('click', function() {
-//   toggleAirConditioner(ac.toggle, ac.img, ac.path);
-// });
-// });
 
 let lamps_fb = [
   {toggle: document.getElementById('lamp_1_toggle'), state: document.getElementById('lamp_1_state'), path: `${value}/lamp_1_state`},
-  // {toggle: document.getElementById('lamp_2_toggle'), state: document.getElementById('lamp_2_state'), path: 'c302/lamp_2_state'},
-  // {toggle: document.getElementById('fan_1_toggle'), state: document.getElementById('fan_1_state'), path: 'c302/fan_1_state'},
-  // {toggle: document.getElementById('fan_2_toggle'), state: document.getElementById('fan_2_state'), path: 'c302/fan_2_state'}
 ];
 
 lamps_fb.forEach(function(lamp_fb) {
@@ -106,7 +80,6 @@ lamps_fb.forEach(function(lamp_fb) {
     }
   });
 });
-}
 
 var currentMinute;
 const st_cir = document.getElementById('st_cir');
@@ -133,24 +106,30 @@ function checkOnlesp() {
 
 setInterval(sendCurrentMinute, 1 * 1000);
 setInterval(checkOnlesp, 12 * 1000);
-// let airConditioners_fb = [
-//   {toggle: document.getElementById('air_1_toggle'), img: document.getElementById('img_air_1'), path: 'c302/air_1_state'},
-//   {toggle: document.getElementById('air_2_toggle'), img: document.getElementById('img_air_2'), path: 'c302/air_2_state'}
-// ];
 
-// airConditioners_fb.forEach(function(ac) {
-//   onValue(ref(database, ac.path), function(snapshot) {
-//     let state = snapshot.val();
-//     if (state) {
-//       ac.img.src = 'img/snowflake.png';
-//       ac.toggle.parentNode.classList.add('active');
-//     } else {
-//       ac.img.src = 'img/cut_snowflake.png';
-//       ac.toggle.parentNode.classList.remove('active');
-//     }
-//   });
-// });
+const butt_timer = document.getElementById('butt_timer')
+butt_timer.addEventListener('click', function() {
+  const timeInput = document.getElementById("timeInput");
+  const selectedTime = timeInput.value;
+  console.log("Thời gian đã chọn:", selectedTime);
+});
+const butt_current = document.getElementById('butt_current')
+butt_current.addEventListener('click', function() {
+  const currentInput = document.getElementById("currentInput");
+  // const selectedTime = currentInput.value;
+  if(currentInput.value > 9.5)
+  {
+    alert("Current set max = 9.5A")
+  }
+  else console.log(currentInput.value);
+});
+const butt_energy = document.getElementById('butt_energy')
+butt_energy.addEventListener('click', function() {
+  const energyInput = document.getElementById("energyInput");
+  console.log(energyInput.value);
+});
 
+}
 
 
 onAuthStateChanged(auth, (user) => {
