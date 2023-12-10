@@ -51,23 +51,23 @@ onAuthStateChanged(auth, (user) => {
     // });
   }
 });
-
-function handleIdDeviceUpdate(value) {
-
-console.log(value);
-const tempRef = ref(database, `${value}/Frequency`);
+  
+  function handleIdDeviceUpdate(value) {
+  
+  console.log(value);
+  const tempRef = ref(database, `${value}/Frequency`);
 // const tempRef = ref(database, '11971268/Frequency');
 
-onValue(tempRef, (snapshot) => {
-  const temp = snapshot.val().toFixed(1);
-  // console.log(temp);
-  document.getElementById('temp').textContent = temp + ' Hz';
-  document.getElementById('temp1').textContent = temp + ' Hz';
-  document.getElementById('num_temp').style.setProperty('--num_temp', temp);
-  if(temp == null){
-    alert("Device not found");
-  }
-});
+  onValue(tempRef, (snapshot) => {
+    const temp = snapshot.val().toFixed(1);
+    // console.log(temp);
+    document.getElementById('temp').textContent = temp + ' Hz';
+    document.getElementById('temp1').textContent = temp + ' Hz';
+    document.getElementById('num_temp').style.setProperty('--num_temp', temp);
+    if(temp == null){
+      alert("Device not found");
+    }
+  });
 
 // const tot_preRef = ref(database, `${value}/Voltage`);
 
@@ -89,38 +89,45 @@ onValue(tempRef, (snapshot) => {
 //   }
 // });
 
-const preRef = ref(database, `${value}/Voltage`);
+  const preRef = ref(database, `${value}/Voltage`);
+  
+  onValue(preRef, (snapshot) => {
+    const pre = snapshot.val();
+    document.getElementById('pre').textContent = pre.toFixed(1) + " V";
+    document.getElementById('pre1').textContent = pre.toFixed(1) + " V";
+    document.getElementById('num_pre').style.setProperty('--num_pre', pre);
+  });
+  
+  const humiRef = ref(database, `${value}/Current`);
+  
+  onValue(humiRef, (snapshot) => {
+    const humi = snapshot.val();
+    document.getElementById('humi').textContent = humi + ' A';
+    document.getElementById('humi1').textContent = humi + ' A';
+    document.getElementById('num_humi').style.setProperty('--num_humi', humi);
+  });
+  
+  const powerRef = ref(database, `${value}/Power`);
 
-onValue(preRef, (snapshot) => {
-  const pre = snapshot.val();
-  document.getElementById('pre').textContent = pre.toFixed(1) + " V";
-  document.getElementById('pre1').textContent = pre.toFixed(1) + " V";
-  document.getElementById('num_pre').style.setProperty('--num_pre', pre);
-});
+  onValue(powerRef, (snapshot) => {
+    const power = snapshot.val();
+    document.getElementById('power').textContent = power + ' W';
+    document.getElementById('power1').textContent = power + ' W';
+    // document.getElementById('num_power').style.setProperty('--num_power', power);
+    if(power >=1500){
+      document.getElementById("num_power").style.setProperty("--clr-power", "red");
+    }
+    else document.getElementById("num_power").style.setProperty("--clr-power", "#17c943");
+  });
 
-const humiRef = ref(database, `${value}/Current`);
+  const energyRef = ref(database, `${value}/Energy`);
 
-onValue(humiRef, (snapshot) => {
-  const humi = snapshot.val();
-  document.getElementById('humi').textContent = humi + ' A';
-  document.getElementById('humi1').textContent = humi + ' A';
-  document.getElementById('num_humi').style.setProperty('--num_humi', humi);
-});
-
-const powerRef = ref(database, `${value}/Power`);
-
-onValue(powerRef, (snapshot) => {
-  const power = snapshot.val();
-  document.getElementById('power').textContent = power + ' W';
-  document.getElementById('power1').textContent = power + ' W';
-  // document.getElementById('num_power').style.setProperty('--num_power', power);
-  if(power >=1500){
-    document.getElementById("num_power").style.setProperty("--clr-power", "red");
-  }
-  else document.getElementById("num_power").style.setProperty("--clr-power", "#17c943");
-});
-
-
+  onValue(energyRef, (snapshot) => {
+    const energy = snapshot.val();
+    document.getElementById('energy').textContent = energy + ' kWh';
+    document.getElementById('energy1').textContent = energy ;
+    // document.getElementById('num_power').style.setProperty('--num_power', power);
+  });
 
   var currentMinute;
   const st_cir = document.getElementById('st_cir');
