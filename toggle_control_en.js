@@ -82,30 +82,28 @@ lamps_fb.forEach(function(lamp_fb) {
 });
 
 var currentMinute;
+var currentSeconds;
 const st_cir = document.getElementById('st_cir');
 let onlesp;
-
+let lastOnlineTime = 0; 
+var ms;
 function sendCurrentMinute() {
   currentMinute = new Date().getMinutes(); 
-  // console.log(currentMinute);
-
+  currentSeconds = new Date().getSeconds(); 
+  ms = currentMinute * 60 + currentSeconds; 
   const onlesp_stRef = ref(database, `${value}/onlesp_st`);
   onValue(onlesp_stRef, (snapshot) => {
     onlesp = snapshot.val();
   });
-}
 
-function checkOnlesp() {
-  // console.log(currentMinute);
-  if (onlesp == currentMinute) {
+  if (onlesp === currentMinute) {
+    lastOnlineTime = ms;
     st_cir.style.background = "rgba(57, 198, 92, 255)";
-  } else {
+  } else if (lastOnlineTime < (ms - 10)) {
     st_cir.style.background = "rgb(227, 4, 90)";
   }
-}
-
+  }
 setInterval(sendCurrentMinute, 1 * 1000);
-setInterval(checkOnlesp, 12 * 1000);
 
 const butt_timer = document.getElementById('butt_timer')
 butt_timer.addEventListener('click', function() {
