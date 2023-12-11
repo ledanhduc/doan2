@@ -1,20 +1,34 @@
 const Orders = [
     {
-        productName: '1',
-        productNumber: '>200kWh/M',
-        paymentStatus: '1.678 đ/kWh',
-        status: 'Apply'
+        
+        productNumber: '50',
+        paymentStatus: '1806'
+    
     },
     {
-        productName: '2',
-        productNumber: '1 >400kWh/M',
-        paymentStatus: '1.845 đ/kWh',
-        status: 'Apply'
+        
+        productNumber: '50',
+        paymentStatus: '1866'
+    
     },
     {
-        productName: '3',
-        productNumber: '< 400kWh/M',
-        paymentStatus: '2.536 đ/kWh',
-        status: 'X'
+        
+        productNumber: '100',
+        paymentStatus: '2167'
+    },    
+    {
+        
+        productNumber: '100',
+        paymentStatus: '2729'
+    },    
+    {
+        
+        productNumber: '100',
+        paymentStatus: '3050'
+    },
+    {
+
+        productNumber: '0',
+        paymentStatus: '3151'
     },
 ]
