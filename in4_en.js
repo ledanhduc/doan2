@@ -130,34 +130,31 @@ onAuthStateChanged(auth, (user) => {
   });
 
   var currentMinute;
+  var currentSeconds;
   const st_cir = document.getElementById('st_cir');
   let onlesp;
-
-  // setTimeout(() => {
-  // }, 5000); // Độ trễ 5 giây
+  let lastOnlineTime = 0; 
+  var ms;
   function sendCurrentMinute() {
-    currentMinute = new Date().getMinutes(); // Cập nhật giá trị currentMinute
-    // console.log(currentMinute);
-  
+    currentMinute = new Date().getMinutes(); 
+    currentSeconds = new Date().getSeconds(); 
+    ms = currentMinute * 60 + currentSeconds; 
     const onlesp_stRef = ref(database, `${value}/onlesp_st`);
     onValue(onlesp_stRef, (snapshot) => {
       onlesp = snapshot.val();
     });
-    // setTimeout(checkOnlesp, 5000); // Đặt thời gian chờ 5 giây trước khi kiểm tra điều kiện
-  }
   
-  function checkOnlesp() {
-    // console.log(currentMinute);
-    if (onlesp == currentMinute) {
+    if (onlesp === currentMinute) {
+      lastOnlineTime = ms;
       st_cir.style.background = "rgba(57, 198, 92, 255)";
-    } else {
+    } else if (lastOnlineTime < (ms - 10)) {
       st_cir.style.background = "rgb(227, 4, 90)";
     }
-  }
-
+    }
   setInterval(sendCurrentMinute, 1 * 1000);
-  setInterval(checkOnlesp, 12 * 1000);
-  // console.log(currentMinute);
+  
+
+
 
 }
 
