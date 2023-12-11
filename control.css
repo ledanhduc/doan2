@@ -399,18 +399,16 @@ main .blank-room .room-list:hover{
     box-shadow: none;
 }
 
-main .blank-room .room-list .room{
+#ref_chart{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-main .blank-room .room-list .room img{
-    width: 5rem;
-    height: 5rem;
-    margin-bottom: 0.4rem;
-    border-radius: 50%;
+#ref_chart svg{
+    margin-left: 10px;
+    width: 36x;
+    height: 36px;
+    fill: var(--color-dark);
 }
 
 main .recent-checkin{
