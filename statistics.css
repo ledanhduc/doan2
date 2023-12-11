@@ -270,6 +270,20 @@ aside .sidebar .message-count{
     height: 90%;
 }
 
+.chart #nos{
+    text-align: center;
+    border: 1px solid #bdb9b9;
+    height: 30px;
+    color: var(--color-dark);
+    background: var(--color-white);
+    padding: 5px 5px;
+    border-radius: 30px;
+    flex: 1;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: normal;
+}
 .chart #butt_nos{
     text-decoration: none;
     color: var(--color-dark);
