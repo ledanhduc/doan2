@@ -152,10 +152,6 @@ onAuthStateChanged(auth, (user) => {
     }
     }
   setInterval(sendCurrentMinute, 1 * 1000);
-  
-
-
-
 }
 
 var today = new Date();
