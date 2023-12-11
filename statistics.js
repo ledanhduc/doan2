@@ -109,8 +109,8 @@ function handleIdDeviceUpdate(value) {
         plugins: {
           title: {
             display: true,
-            text: 'Biểu đồ công suất',
-            align: 'center',
+            text: `ID: ${Id_device} - W`,
+            align: 'end',
             font: {
               size: 16
             }
