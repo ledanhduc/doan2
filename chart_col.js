@@ -85,7 +85,7 @@ function handleIdDeviceUpdate(value, curenergy) {
             title: {
               display: true,
               text: `ID: ${Id_device} - kWH`,
-              align: 'center',
+              align: 'end',
               font: {
                 size: 16
               }
