@@ -347,7 +347,7 @@ color: rgb(227, 4, 90, 1);
     text-align: center;
     border: 1px solid #bdb9b9;
     height: max-content;
-    width: 80%;
+    width: 100%;
     color: var(--color-dark);
     background: var(--color-white);
     padding: 5px 5px;
@@ -355,7 +355,7 @@ color: rgb(227, 4, 90, 1);
 }
 .btn_setup{
     text-decoration: none;
-    position: absolute;
+/*     position: absolute; */
     top: 0;
     left: 0;
     width: 80px;
