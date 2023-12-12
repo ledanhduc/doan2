@@ -347,7 +347,7 @@ color: rgb(227, 4, 90, 1);
     text-align: center;
     border: 1px solid #bdb9b9;
     height: max-content;
-    width: 100%;
+    width: 80%;
     color: var(--color-dark);
     background: var(--color-white);
     padding: 5px 5px;
