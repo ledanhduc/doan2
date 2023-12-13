@@ -46,7 +46,7 @@ const signup = async (e) => {
 
         alert("Sign up successful");
         const encodedEmail = encodeURIComponent(email_reg.replace(/[.@]/g, '_'));
-        await set(ref(db, `${encodedEmail}`), iddevice);
+        await set(ref(db, `${encodedEmail}`), Id_Device);
         console.log("Lưu thông tin đăng ký vào Firebase thành công");
 
         if (await checkLoggedIn()) {
