@@ -137,8 +137,8 @@ onAuthStateChanged(auth, (user) => {
     onValue(energy11Ref, (snapshot) => {
       energy_11 = snapshot.val();
       if(day != 10){
-        document.getElementById('eom').textContent = (energy -energy_11) + ' kWh';
-        document.getElementById('eom1').textContent = (energy -energy_11);
+        document.getElementById('eom').textContent = (energy -energy_11).toFixed(3) + ' kWh';
+        document.getElementById('eom1').textContent = (energy -energy_11).toFixed(1);
       }
     });
   });
@@ -152,8 +152,8 @@ onAuthStateChanged(auth, (user) => {
     onValue(energy11Ref, (snapshot) => {
       energy_11 = snapshot.val();
       if(day == 10){
-        document.getElementById('eom').textContent = (energy_10 -energy_11) + ' kWh';
-        document.getElementById('eom1').textContent = (energy_10 -energy_11);
+        document.getElementById('eom').textContent = (energy_10 -energy_11).toFixed(3) + ' kWh';
+        document.getElementById('eom1').textContent = (energy_10 -energy_11).toFixed(1);
       }
     });
   });
