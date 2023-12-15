@@ -121,12 +121,41 @@ onAuthStateChanged(auth, (user) => {
   });
 
   const energyRef = ref(database, `${value}/Energy`);
+  var day = new Date().getDate();
+  var energy
+  var energy_11;
 
   onValue(energyRef, (snapshot) => {
-    const energy = snapshot.val();
+    energy = snapshot.val();
     document.getElementById('energy').textContent = energy + ' kWh';
     document.getElementById('energy1').textContent = energy ;
-    // document.getElementById('num_power').style.setProperty('--num_power', power);
+    
+    document.getElementById("num_energy").style.setProperty('--num_day', day);
+  
+  
+    const energy11Ref = ref(database, `${value}/Energy_11`);
+    onValue(energy11Ref, (snapshot) => {
+      energy_11 = snapshot.val();
+      if(day != 10){
+        document.getElementById('eom').textContent = (energy -energy_11) + ' kWh';
+        document.getElementById('eom1').textContent = (energy -energy_11);
+      }
+    });
+  });
+
+  const energy10Ref = ref(database, `${value}/Energy_10`);  
+  var energy_10
+  onValue(energy10Ref, (snapshot) => {
+    energy_10 = snapshot.val();
+    // console.log(energy_10)
+    const energy11Ref = ref(database, `${value}/Energy_11`);
+    onValue(energy11Ref, (snapshot) => {
+      energy_11 = snapshot.val();
+      if(day == 10){
+        document.getElementById('eom').textContent = (energy_10 -energy_11) + ' kWh';
+        document.getElementById('eom1').textContent = (energy_10 -energy_11);
+      }
+    });
   });
 
   var currentMinute;
