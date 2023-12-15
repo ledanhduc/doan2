@@ -363,6 +363,12 @@ main .analyse .temp_cir svg circle:nth-child(2).energy {
     stroke-dasharray: 239;
     stroke-dashoffset: calc(239 - (239 * var(--num_day)) / 30);
 }
+main .analyse .temp_cir svg circle:nth-child(2).eom {
+    stroke: var(--clr-eom);
+    stroke-dasharray: 239;
+    stroke-dashoffset: 0;
+    transition: stroke 0.8s ease-in-out;
+}
 .dot{
     position: absolute;
     inset: 2.9px;
