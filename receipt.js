@@ -97,7 +97,7 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
         set(ref(database, `${value}/tier_6`), 0);
       }else if(total>400){
         set(ref(database, `${value}/tier_5`), 100);
-        set(ref(database, `${value}/tier_6`), total-400);
+        set(ref(database, `${value}/tier_6`), (total-400).toFixed(0));
       }
 
     const tier_1Ref = ref(database, `${Id_device}/tier_1`);
@@ -146,7 +146,7 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
       // console.log(tol_money_v)
       document.getElementById('total_v').value = format_m(tol_money_v);
       tol_money = tol_money_n_v + tol_money_v;
-      document.getElementById('total_m').value = format_m(tol_money.toFixed(0));
+      document.getElementById('total_m').value = format_m(tol_money);
     });
 
     const Orders1 = [
