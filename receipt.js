@@ -59,7 +59,7 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
       // console.log(total)
       document.getElementById('total').value = total;
       if(total <= 50){
-        set(ref(database, `${value}/tier_1`), total);
+        set(ref(database, `${value}/tier_1`), parseInt((total).toFixed(0)));
         set(ref(database, `${value}/tier_2`), 0);
         set(ref(database, `${value}/tier_3`), 0);
         set(ref(database, `${value}/tier_4`), 0);
@@ -69,7 +69,7 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
         set(ref(database, `${value}/tier_1`), 50);
       }
       if(total<=100 && (total-50) >0){
-        set(ref(database, `${value}/tier_2`), total-50);
+        set(ref(database, `${value}/tier_2`), parseInt((total-50).toFixed(0)));
         set(ref(database, `${value}/tier_3`), 0);
         set(ref(database, `${value}/tier_4`), 0);
         set(ref(database, `${value}/tier_5`), 0);
@@ -78,7 +78,7 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
         set(ref(database, `${value}/tier_2`), 50);
       }
       if(total<=200 && (total-100) >0){
-        set(ref(database, `${value}/tier_3`), total-100);
+        set(ref(database, `${value}/tier_3`), parseInt((total-100).toFixed(0)));
         set(ref(database, `${value}/tier_4`), 0);
         set(ref(database, `${value}/tier_5`), 0);
         set(ref(database, `${value}/tier_6`), 0);
@@ -86,18 +86,18 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
         set(ref(database, `${value}/tier_3`), 100);
       }
       if(total<=300 && (total-200) >0){
-        set(ref(database, `${value}/tier_4`), total-200);
+        set(ref(database, `${value}/tier_4`), parseInt((total-200).toFixed(0)));
         set(ref(database, `${value}/tier_5`), 0);
         set(ref(database, `${value}/tier_6`), 0);
       }else if(total>300){
         set(ref(database, `${value}/tier_4`), 100);
       }
       if(total<=400 && (total-300) >0 ){
-        set(ref(database, `${value}/tier_5`), total-300);
+        set(ref(database, `${value}/tier_5`), parseInt((total-300).toFixed(0)));
         set(ref(database, `${value}/tier_6`), 0);
       }else if(total>400){
         set(ref(database, `${value}/tier_5`), 100);
-        set(ref(database, `${value}/tier_6`), (total-400).toFixed(0));
+        set(ref(database, `${value}/tier_6`), parseInt((total-400).toFixed(0)));
       }
 
     const tier_1Ref = ref(database, `${Id_device}/tier_1`);
@@ -142,10 +142,10 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
       tol_money_n_v = tier_1*1806 + tier_2*1866 + tier_3*2167	+ tier_4*2729	+ tier_5*3050 + tier_6*3151;
       // console.log(tol_money_n_v);
       document.getElementById('total_n_v').value = format_m(tol_money_n_v);
-      tol_money_v = tol_money_n_v*8/100;
+      tol_money_v = (tol_money_n_v*8/100).toFixed(0);
       // console.log(tol_money_v)
       document.getElementById('total_v').value = format_m(tol_money_v);
-      tol_money = tol_money_n_v + tol_money_v;
+      tol_money = tol_money_n_v + parseInt(tol_money_v);
       document.getElementById('total_m').value = format_m(tol_money);
     });
 
