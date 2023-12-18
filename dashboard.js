@@ -52,7 +52,15 @@ onAuthStateChanged(auth, (user) => {
 
     onValue(ref(database, `${encodedEmail}/devices`), (snapshot) => {
       const devices = snapshot.val(); // Lấy dữ liệu từ snapshot
-  
+      if(devices == null){
+        const aler = document.createElement('h2');
+        aler.innerText = "Add more devices - Always by your side";
+        document.getElementById('find').appendChild(aler);
+        const image = document.createElement('img');
+        image.src = 'img/logo_1.png';
+        document.getElementById('img1').appendChild(image);
+        // console.log("1")
+      }
       // Lặp qua các khóa và giá trị trong devices
       for (const key in devices) {
           const value = devices[key];
