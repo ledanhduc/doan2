@@ -290,6 +290,15 @@ main #id h1{
     margin-left: 10px;
 }
 
+.findh2{
+    display: flex;
+    justify-content: center;
+}
+#img1{
+    width: 85%;
+    height: 85%;
+}
+
 main #id button{
     width: 100%;
     margin: 0 auto;
