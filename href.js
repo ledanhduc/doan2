@@ -16,12 +16,14 @@
 // document.getElementById('ref_addDevices').href = "#";
 
 var pageLinks = [
+    { id: 'ref_dashboard', href: 'dashboard.html' },
     { id: 'ref_user', href: 'profile_en.html' },
     { id: 'ref_history', href: 'history_en.html' },
     { id: 'ref_analytics', href: 'analytics_en.html' },
     { id: 'ref_control', href: 'control_en.html' },
     { id: 'ref_statistics', href: 'statistics_en.html' },
-    { id: 'ref_download', href: 'receipt.html' }
+    { id: 'ref_download', href: 'receipt.html' },
+    { id: 'ref_add_devices', href: 'add_devices.html'},
 
   ];
   
