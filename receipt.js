@@ -146,7 +146,7 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
       // console.log(tol_money_v)
       document.getElementById('total_v').value = format_m(tol_money_v);
       tol_money = tol_money_n_v + tol_money_v;
-      document.getElementById('total_m').value = format_m(tol_money);
+      document.getElementById('total_m').value = format_m(tol_money.toFixed(0));
     });
 
     const Orders1 = [
