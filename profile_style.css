@@ -345,6 +345,14 @@ main .analyse .info{
     justify-content: center;
 } 
 
+main .analyse select {
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
 main .analyse .input_in4{
     /* display: inline-flex;
     height: auto; */
