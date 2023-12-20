@@ -887,20 +887,6 @@ main .recent-checkin a{
         margin: 2rem 0 0 0.8rem;
     }
 
-    main .recent-checkin table{
-        width: 83vw;
-    }
-
-    main table thead tr th:last-child,
-    main table thead tr th:first-child{
-        display: none;
-    }
-
-    main table tbody tr td:last-child,
-    main table tbody tr td:first-child{
-        display: none;
-    }
-
 }
 
 @media screen and (max-width: 768px) {
