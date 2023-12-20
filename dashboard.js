@@ -43,7 +43,7 @@ onAuthStateChanged(auth, (user) => {
       remove(deviceRef)
         .then(() => {
           // console.log(`Device with key ${key} deleted successfully.`);
-          location.reload();
+          location.reload(true);
         })
         .catch((error) => {
           console.error(`Failed to delete device with key ${key}: ${error.message}`);
@@ -60,6 +60,9 @@ onAuthStateChanged(auth, (user) => {
         image.src = 'img/logo_1.png';
         document.getElementById('img1').appendChild(image);
         // console.log("1")
+      } else {
+        document.getElementById('find').remove();
+        document.getElementById('img1').remove();
       }
       // Lặp qua các khóa và giá trị trong devices
       for (const key in devices) {
