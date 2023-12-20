@@ -748,28 +748,6 @@ main .recent-checkin a{
         flex-basis: 40%;
     }
 
-    main .recent-checkin {
-        width: 94%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 2rem 0 0 0.8rem;
-    }
-
-    main .recent-checkin table{
-        width: 83vw;
-    }
-
-    main table thead tr th:last-child,
-    main table thead tr th:first-child{
-        display: none;
-    }
-
-    main table tbody tr td:last-child,
-    main table tbody tr td:first-child{
-        display: none;
-    }
-
 }
 
 @media screen and (max-width: 768px) {
