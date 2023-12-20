@@ -43,7 +43,7 @@ onAuthStateChanged(auth, (user) => {
       remove(deviceRef)
         .then(() => {
           // console.log(`Device with key ${key} deleted successfully.`);
-          location.reload(true);
+          location.reload();
         })
         .catch((error) => {
           console.error(`Failed to delete device with key ${key}: ${error.message}`);
