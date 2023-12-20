@@ -127,7 +127,7 @@ function handleIdDeviceUpdate(value,energy11,energy10) {
     
     const tier_6Ref = ref(database, `${Id_device}/tier_6`);
     onValue(tier_6Ref, (snapshot) => {
-      +tier_6 = snapshot.val();
+      tier_6 = snapshot.val();
     });
     
     function format_m(number) {
