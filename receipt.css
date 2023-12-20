@@ -722,30 +722,6 @@ main .recent-checkin a{
     main .blank-room .room-list .room{
         flex-basis: 40%;
     }
-
-    main .recent-checkin {
-        width: max-content%;
-        position: relative;
-        /* left: 50%; */
-        /* transform: translateX(-50%); */
-        margin: 0 0 0 0.8rem;
-    }
-
-    main .recent-checkin table{
-        /* width: 100%; */
-        width: 83wh;
-    }
-
-    main table thead tr th:last-child,
-    main table thead tr th:first-child{
-        display: none;
-    }
-
-    main table tbody tr td:last-child,
-    main table tbody tr td:first-child{
-        display: none;
-    }
-
 }
 
 @media screen and (max-width: 768px) {
