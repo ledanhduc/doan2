@@ -27,7 +27,7 @@ const avtUser1 = document.getElementById("avt_user1");
 const add = document.getElementById("add");
 const id_devices = document.getElementById("id_devices");
 const id_name = document.getElementById("id_name");
-
+const selectElement = document.getElementById('pet-select');
 
 add.addEventListener('click', function() {
   if (id_devices.value === '') {
@@ -40,6 +40,7 @@ add.addEventListener('click', function() {
       encodedEmail = encodeURIComponent(user.email.replace(/[.@]/g, '_'));
       // set(ref(database, `${encodedEmail}/nameuser`), nameuser.value);
       set(databaseRef(database, `${encodedEmail}/devices/${id_devices.value}`), id_name.value);
+      set(databaseRef(database, `${id_devices.value}/type`), selectElement.value);
       alert("Add Devices successfully")
       window.close();
     } else {
