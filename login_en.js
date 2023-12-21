@@ -89,7 +89,7 @@ const login = async (e) => {
         localStorage.clear();
       }
   
-      window.location.replace("analytics_en.html");
+      window.location.replace("dashboard.html");
     } catch (error) {
       alert("Sign in failed: " + error.message);
     }
