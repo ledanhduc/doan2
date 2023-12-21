@@ -22,8 +22,7 @@ const auth = getAuth(app);
 let encodedEmail;
 const nameuser1 = document.getElementById("nameuser1");
 const avtUser1 = document.getElementById("avt_user1");
-const id_st = document.getElementById("st_id");
-let Id_device;
+
 
 onAuthStateChanged(auth, (user) => {  
   if (user) {
@@ -40,7 +39,9 @@ onAuthStateChanged(auth, (user) => {
     // });
     function deleteDeviceByKey(key) {
       const deviceRef = ref(database, `${encodedEmail}/devices/${key}`);
-      remove(deviceRef)
+      const typeRef = ref(database, `${key}`);
+      remove(deviceRef),
+      remove(typeRef)
         .then(() => {
           // console.log(`Device with key ${key} deleted successfully.`);
           location.reload();
@@ -81,13 +82,34 @@ onAuthStateChanged(auth, (user) => {
           const infoDiv = document.createElement('div');
           infoDiv.classList.add('info');
   
-          const voltageHeading = document.createElement('h3');
-          voltageHeading.id = 'id_device';
-          voltageHeading.innerText = "ID Device: " + key;
+          const idHeading = document.createElement('h3');
+          idHeading.id = 'id_device';
+          idHeading.innerText = "ID Device: " + key;
           
           const nameHeading = document.createElement('h3');
           nameHeading.id = 'id_name';
           nameHeading.innerText = "Name Device: " + value;
+
+          const typeHeading = document.createElement('h3');
+            onValue(ref(database, `${key}/type`), (snapshot) => {
+              const type = snapshot.val();
+              if (type === 'elic'){
+                typeHeading.id = 'id_type';
+                typeHeading.innerText = "Name Device: Electricity";
+                nameHeading.addEventListener('click', function () {
+                  window.location.href = 'analytics_en.html';
+                });
+              }else if (type === 'wt') {
+                typeHeading.id = 'id_type';
+                typeHeading.innerText = "Name Device: Water";
+                nameHeading.addEventListener('click', function () {
+                  window.location.href = 'w_meter_test.html';
+                });
+              }else{
+                typeHeading.id = 'id_type';
+                typeHeading.innerText = "Name Device: ";
+              }
+            });
 
           const deleteButton = document.createElement('button');
           deleteButton.innerText = 'Delete';
@@ -98,8 +120,9 @@ onAuthStateChanged(auth, (user) => {
             deleteDeviceByKey(keyToDelete);
           });
   
-          infoDiv.appendChild(voltageHeading);
+          infoDiv.appendChild(idHeading);
           infoDiv.appendChild(nameHeading);
+          infoDiv.appendChild(typeHeading);
           infoDiv.appendChild(deleteButton);
           statusDiv.appendChild(infoDiv);
           presentDiv.appendChild(statusDiv);
