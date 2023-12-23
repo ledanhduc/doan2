@@ -43,7 +43,7 @@ function handleIdDeviceUpdate(value, curenergy) {
     snapshot.forEach((childSnapshot) => {
       var childData = childSnapshot.val();
       if(childData === "null"){
-        alert(Data Unavailable);
+        alert("Data Unavailable");
         window.close();
       }
       data.push(childData);
