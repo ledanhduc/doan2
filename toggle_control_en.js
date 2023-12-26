@@ -77,6 +77,7 @@ lamps_fb.forEach(function(lamp_fb) {
       lamp_fb.toggle.parentNode.classList.remove('active');
       lamp_fb.state.innerHTML = "OFF";
       lamp_fb.state.style.color = "rgb(227, 4, 90)";
+      set(ref(database, `${value}/st_timer`), false); 
     }
   });
 });
@@ -105,12 +106,28 @@ function sendCurrentMinute() {
   }
 setInterval(sendCurrentMinute, 1 * 1000);
 
-const butt_timer = document.getElementById('butt_timer')
+const butt_timer = document.getElementById('butt_timer');
 butt_timer.addEventListener('click', function() {
   const timeInput = document.getElementById("timeInput");
   const selectedTime = timeInput.value;
-  console.log("Thời gian đã chọn:", selectedTime);
+
+  const [hour, minute] = selectedTime.split(":");
+  set(ref(database, `${value}/h_timer`), parseInt(hour, 10)); 
+  set(ref(database, `${value}/m_timer`), parseInt(minute, 10)); 
+  set(ref(database, `${value}/st_timer`), true); 
 });
+
+onValue(ref(database, `${value}/st_timer`), (snapshot) => {
+  const st_timer = snapshot.val();
+  if(st_timer == true){
+    document.getElementById('st_timer').style.color = "rgb(29 154 60)";
+    document.getElementById('st_timer').style.fontWeight = "800";
+    document.getElementById('st_timer').innerText = "TIMER ON";
+  } else{
+    // document.getElementById('butt_timer').style.color = "rgb(227, 4, 90)";
+  }
+});
+  
 const butt_current = document.getElementById('butt_current')
 butt_current.addEventListener('click', function() {
   const currentInput = document.getElementById("currentInput");
