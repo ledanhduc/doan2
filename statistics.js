@@ -75,7 +75,7 @@ function handleIdDeviceUpdate(value) {
 
       hourData = (data.hour);
 
-      if ((hour - hourData) >= 5) {
+      if ((hour - hourData) >= 3 || (hourData - hour) >= 1) {
         const childRef = ref(database, `${value}/chart_power/${childSnapshot.key}`);
         remove(childRef);
       }
