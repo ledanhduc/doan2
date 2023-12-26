@@ -78,7 +78,7 @@ const login = async (e) => {
       const userCredential = await signInWithEmailAndPassword(auth, emailSig, passSig);
       const encodedEmail = encodeURIComponent(emailSig.replace(/[.@]/g, '_'));
       const user = userCredential.user;
-      const timestamp = new Date().toLocaleString().replace(/[/]/g, '_');
+      const timestamp = new Date().toLocaleString().replace(/[/]/g, '-');
       await set(ref(db, `${encodedEmail}/history/${timestamp}`), ipAddress);
 
       sessionStorage.setItem('userses', JSON.stringify(user));
