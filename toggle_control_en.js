@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
+import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
 
@@ -25,7 +25,8 @@ let Id_device ;
 onAuthStateChanged(auth, (user) => {  
   if (user) {
     encodedEmail = encodeURIComponent(user.email.replace(/[.@]/g, '_'));
-    onValue(ref(database, `${encodedEmail}/avt_img`), (snapshot) => {
+    get(ref(database, `${encodedEmail}/avt_img`))
+    .then((snapshot) => {
       avtUser1.src = snapshot.val();
     });
     nameuser1.innerHTML = user.displayName;
@@ -106,43 +107,39 @@ function sendCurrentMinute() {
   }
 setInterval(sendCurrentMinute, 1 * 1000);
 
-const butt_timer = document.getElementById('butt_timer');
-butt_timer.addEventListener('click', function() {
-  const timeInput = document.getElementById("timeInput");
-  const selectedTime = timeInput.value;
-
-  const [hour, minute] = selectedTime.split(":");
-  set(ref(database, `${value}/h_timer`), parseInt(hour, 10)); 
-  set(ref(database, `${value}/m_timer`), parseInt(minute, 10)); 
-  set(ref(database, `${value}/st_timer`), true); 
-});
-
-onValue(ref(database, `${value}/st_timer`), (snapshot) => {
-  const st_timer = snapshot.val();
-  if(st_timer == true){
-    document.getElementById('st_timer').style.color = "rgb(29 154 60)";
-    document.getElementById('st_timer').style.fontWeight = "800";
-    document.getElementById('st_timer').innerText = "TIMER ON";
-  } else{
-    // document.getElementById('butt_timer').style.color = "rgb(227, 4, 90)";
-  }
-});
+  const butt_timer = document.getElementById('butt_timer');
+  butt_timer.addEventListener('click', function() {
+    const timeInput = document.getElementById("timeInput");
+    const selectedTime = timeInput.value;
   
-const butt_current = document.getElementById('butt_current')
-butt_current.addEventListener('click', function() {
-  const currentInput = document.getElementById("currentInput");
-  // const selectedTime = currentInput.value;
-  if(currentInput.value > 9.5)
-  {
-    alert("Current set max = 9.5A")
-  }
-  else console.log(currentInput.value);
-});
-const butt_energy = document.getElementById('butt_energy')
-butt_energy.addEventListener('click', function() {
-  const energyInput = document.getElementById("energyInput");
-  console.log(energyInput.value);
-});
+    const [hour, minute] = selectedTime.split(":");
+    set(ref(database, `${value}/h_timer`), parseInt(hour, 10)); 
+    set(ref(database, `${value}/m_timer`), parseInt(minute, 10)); 
+    set(ref(database, `${value}/st_timer`), true); 
+  });
+
+  const h_timerRef = ref(database, `${value}/h_timer`);
+  const m_timerRef = ref(database, `${value}/m_timer`);
+  const st_timerRef = ref(database, `${value}/st_timer`);
+
+  Promise.all([
+    get(h_timerRef),
+    get(m_timerRef),
+    get(st_timerRef)
+  ]).then(([h_snapshot, m_snapshot, st_snapshot]) => {
+    const h_timer = h_snapshot.val();
+    const m_timer = m_snapshot.val();
+    const st_timer = st_snapshot.val();
+
+    if (st_timer == true) {
+      document.getElementById('st_timer').style.color = "rgb(29 154 60)";
+      document.getElementById('st_timer').style.fontWeight = "800";
+      document.getElementById('st_timer').innerText = `device will off at ${h_timer} : ${m_timer}`;
+    }else{
+      element.removeAttribute('style');
+      element.innerText = "Timer";
+    }
+  });
 
 }
 
