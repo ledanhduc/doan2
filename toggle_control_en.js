@@ -136,8 +136,7 @@ setInterval(sendCurrentMinute, 1 * 1000);
       document.getElementById('st_timer').style.fontWeight = "800";
       document.getElementById('st_timer').innerText = `device will off at ${h_timer} : ${m_timer}`;
     }else{
-      element.removeAttribute('style');
-      element.innerText = "Timer";
+      document.getElementById('st_timer').innerText = "Timer";
     }
   });
 
