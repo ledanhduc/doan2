@@ -116,6 +116,7 @@ setInterval(sendCurrentMinute, 1 * 1000);
     set(ref(database, `${value}/h_timer`), parseInt(hour, 10)); 
     set(ref(database, `${value}/m_timer`), parseInt(minute, 10)); 
     set(ref(database, `${value}/st_timer`), true); 
+    alert("Timer is ON");
   });
 
   const h_timerRef = ref(database, `${value}/h_timer`);
