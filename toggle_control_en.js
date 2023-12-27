@@ -69,15 +69,18 @@ let lamps_fb = [
 
 lamps_fb.forEach(function(lamp_fb) {
   onValue(ref(database, lamp_fb.path), function(snapshot) {
+    const timestamp = new Date().toLocaleString().replace(/[/]/g, '-');
     let state = snapshot.val();
     if (state) {
       lamp_fb.toggle.parentNode.classList.add('active');
       lamp_fb.state.innerHTML = "ON";
       lamp_fb.state.style.color = "rgba(57,198,92,255)";
+      set(ref(database, `${value}/1/web_butt/${timestamp}`), true);//////////// test //////////////
     } else {
       lamp_fb.toggle.parentNode.classList.remove('active');
       lamp_fb.state.innerHTML = "OFF";
       lamp_fb.state.style.color = "rgb(227, 4, 90)";
+      set(ref(database, `${value}/1/web_butt/${timestamp}`), false);//////////// test //////////////
       set(ref(database, `${value}/st_timer`), false); 
     }
   });
