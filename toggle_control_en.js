@@ -122,23 +122,27 @@ setInterval(sendCurrentMinute, 1 * 1000);
   const m_timerRef = ref(database, `${value}/m_timer`);
   const st_timerRef = ref(database, `${value}/st_timer`);
 
-  Promise.all([
-    get(h_timerRef),
-    get(m_timerRef),
-    get(st_timerRef)
-  ]).then(([h_snapshot, m_snapshot, st_snapshot]) => {
-    const h_timer = h_snapshot.val();
-    const m_timer = m_snapshot.val();
-    const st_timer = st_snapshot.val();
+    function checkTimer(){
+    Promise.all([
+      get(h_timerRef),
+      get(m_timerRef),
+      get(st_timerRef)
+    ]).then(([h_snapshot, m_snapshot, st_snapshot]) => {
+      const h_timer = h_snapshot.val();
+      const m_timer = m_snapshot.val();
+      const st_timer = st_snapshot.val();
 
-    if (st_timer == true) {
-      document.getElementById('st_timer').style.color = "rgb(29 154 60)";
-      document.getElementById('st_timer').style.fontWeight = "800";
-      document.getElementById('st_timer').innerText = `device will off at ${h_timer} : ${m_timer}`;
-    }else{
-      document.getElementById('st_timer').innerText = "Timer";
-    }
-  });
+      if (st_timer == true) {
+        document.getElementById('st_timer').style.color = "rgb(29 154 60)";
+        document.getElementById('st_timer').style.fontWeight = "800";
+        document.getElementById('st_timer').innerText = `device will off at ${h_timer} : ${m_timer}`;
+      }else{
+        document.getElementById('st_timer').removeAttribute('style');
+        document.getElementById('st_timer').innerText = "Timer";
+      }
+    });
+  }
+  setInterval(checkTimer, 10 * 1000);
 
 }
 
